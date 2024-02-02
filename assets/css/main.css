@@ -2391,6 +2391,7 @@ input, select, textarea {
 
 	.boxed {
 		border: 2px solid white;
+        background-color: black;
         padding: 10px;
 	}
 
