@@ -13,12 +13,48 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script language="javascript">
+            function myMonthFunction(obj) {
+			
+				var table = document.getElementById('myNewsletterTable');  
+				var count = table.rows.length;
+				for (var i=0; i<count; i++) {    
+					if (obj == table.rows[i].id) {
+						table.rows[i].style.display = 'table-row';
+					} else {
+						table.rows[i].style.display = 'none';
+					}
+				}
+
+                if (obj == "myCurrentYear") {
+					for (var i=0; i<count; i++) {
+						table.rows[i].style.display = 'table-row';
+					}	
+				}
+				
+				/*
+				document.getElementById("myJan").style.display = 'table-row';
+				document.getElementById("myFeb").style.display = 'none';
+				document.getElementById("myMar").style.display = 'none';
+				*/	
+
+			}
+			
+			function toggleParagraphVisible() {
+				if (document.getElementById("textIsHidden").innerText == "more..."){
+				    document.getElementById("textIsHidden").innerText = "less...";
+				} else {
+					document.getElementById("textIsHidden").innerText = "more...";
+				}
+			}
+
+        </script>		
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
 
-			<!-- Header -->
-<header id="header">
+	<!-- Header -->
+	<header id="header">
     <nav id="nav">
         <ul>
             <li id="logo"><a href="index.html"><span><img src="images/minilogo.jpg" alt="logo" /></span></a></li>
@@ -27,582 +63,221 @@
             <li><a href= "drpcReadingLists.html">Reading Lists</a></li>
             <li><a href="drpcUsingResources.html">Using DRPC Resources</a></li>
             <li><a href="drpcBlog.html">Blog</a></li>
-            <li><a href="drpcNewsletter.html" >Newsletter</a> </li> 
+            <li class="active"><a href="drpcNewsletter.html" >Newsletter</a></li> 
             <li><a href="digitalResources.html">Digital Resources</a></li>
             <li><a href="advisoryBoard.html">Advisory Board</a></li>
             <li><a href="contacts.html">Contact Us</a></li>
-            <li><a href="signUp.html" class="button primary">Sign Up</a></li>
+            <li><a href="drpcRecentChanges.html" class="button primary">Recent Changes</a></li>
         </ul>
     </nav>
     </header>
-			<!-- Main -->
-				<div id="main" class="wrapper style1">
-					<div class="container">
-                        
-                        
-						<header class="major">
-							<h2 class = "icon solid fa-newspaper" > DRPC Newsletter</h2>
-							<p>Here you can download all the monthly newsletters from the DRPC!</p>
-						</header>
-<section>
-                                <div class="row gtr-150">
-							<div class="col-4 col-12-medium">
-
-                                <section>
-                                <div id="six" class="wrapper style1">
-                                <div class="container">
-								<h3>Monthly Calendar of Blog Posts</h3>
-                                    <p>Click the month to find out the blogposts for each month to display in a PDF:</p>
-                                <p> <br> <a href= "#three">Introductory Blog Post</p>
-								<div class="table-wrapper">
-									<table>
-										<thead>
-                                            <th colspan="3" ><a href="#" class="button fit small">2023-2024</a></th>
-										</thead>
-										<tbody>
-											<tr>
-                                                <p></p>
-												<td><a href="https://drpcollective.files.wordpress.com/2023/01/experimental-style-fusion-1.pdf" class="button fit small">Jan</a></td>
-												<td><a href="#" class="button fit small">Feb</a></td>
-												<td><a href="#" class="button fit small">Mar</a></td>
-											</tr>
-											<tr>
-												<td><a href="#" class="button fit small">Apr</a></td>
-												<td><a href="#" class="button fit small">May</a></td>
-												<td><a href="#" class="button fit small">Jun</a></td>
-											</tr>
-											<tr>
-                                                <td><a href="#" class="button fit small">Jul</a></td>
-												<td><a href="#" class="button fit small">Aug</a></td>
-												<td><a href="#" class="button fit small">Sep</a></td>
-											</tr>
-											<tr>
-												<td><a href="#" class="button fit small">Oct</a></td>
-												<td><a href="#" class="button fit small">Nov</a></td>
-												<td><a href="#" class="button fit small">Dec</a></td>
-											</tr>
-										</tbody>
-										<tfoot>
-											<tr>
-											</tr>
-										</tfoot>
-									</table>
-								</div> 
-                                    </div></div>
-                                    <p> Here Are The Recent Newsletters:</p>
-										<h3>DRPC Newsletter 12.18.23</h3>
-										<p><a href="media/blog1december.pdf">Teaching with AI in Spring 2024: A Resource SharingNewsletter</a></p>
-                                        <h3>DRPC Newsletter 10.16.23</h3>
-                                        <p><a href="media/blog2october.pdf">What Rhetoric Can Teach Us About Surveillance?</a></p>
-                                        <h3>DRPC Newsletter 09.04.23</h3>
-                                        <p><a href="media/blog3.pdf">Compliance, the Patriot Act, and Post-9/11 Surveillance:22 Years Later</a></p>
-                                        <h3> DRPC Newsletter 08.01.23 </h3> 
-                                        <p> <a href="media/blog4june.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning (Part II)</a></p>
-                                        <h3> DRPC Newsletter 06.22.23 </h3>
-                                         <p> <a href="media/blog5may.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning</a></p>
-                                        <h3>DRPC Newsletter 05.31.23 </h3>
-                                        <p><a href="media/blog6may.pdf">The “Tik Tok Issue,” Part 2: The Rhetorical Dimensions of a Tik Tok Ban</a></p>
-                                        <h3> DRPC Newsletter 05.09.23</h3>
-                                         <p> <a href="media/blog7may.pdf">The “Tik Tok Issue,” Part 1: Exploring TikTok</a></p>
-                                        <h3> DRPC Newsletter 02.28.23</h3>
-                                         <p> <a href="media/blog8february.pdf">Exploring Privacy and Data Policies</a></p>
-                                        <h3> DRPC Newsletter 01.23.23</h3>
-                                         <p> <a href="media/blog9.pdf">The “Data Trackers, Advertising, and Digital Data Identities</a>
-
-							</section>
-                                    </div>
+	
+	<!-- Main -->
+		<div id="main" class="wrapper style1">
+			<div class="container">
+				<header class="major">
+					<h2 class = "icon solid fa-newspaper" > DRPC Newsletter</h2>
+					<p>Here you can download all the monthly newsletters from the DRPC!</p>
+				</header>
+				<section>
+					<div class="row gtr-150">
+						<div class="col-4 col-12-medium">
+							<h3>Newsletter by Months</h3>
+							<p>View Newsletter by Months</p>
+							<div class="table-wrapper">
+								<table class="nobg">
+									<tbody>
+										<tr>
+											<td colspan="3" ><a href="#" class="button month" onclick ="myMonthFunction('myCurrentYear');">2023</a></td>
+										</tr>
+										<tr>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myJan');">Jan</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myFeb');">Feb</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myMar');">Mar</a></td>
+										</tr>
+										<tr>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myApr');">Apr</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myMay');">May</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myJun');">Jun</a></td>
+										</tr>
+										<tr>
+                                            <td><a href="#" class="button month" onclick ="myMonthFunction('myJul');">Jul</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myAug');">Aug</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('mySep');">Sep</a></td>
+										</tr>
+										<tr>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myOct');">Oct</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myNov');">Nov</a></td>
+											<td><a href="#" class="button month" onclick ="myMonthFunction('myDec');">Dec</a></td>
+										</tr>
+										<tr>
+											<td colspan="3" ><a href="#" class="button month" onclick ="myMonthFunction('myNextYear');">2024</a></td>
+										</tr>										
+									</tbody>
+									<tfoot>
+										<tr>
+										</tr>
+									</tfoot>
+								</table>
+							</div> 
+                                    
+                            <p>View Newsletters by Title:</p>
+                            <h3>DRPC Newsletter 01.15.24</h3>
+							<p><a href="media/janBlog.pdf">The DRPC Presents: Privacy Week 2024</a></p>
+							<h3>DRPC Newsletter 12.18.23</h3>
+							<p><a href="media/blog1december.pdf">Teaching with AI in Spring 2024: A Resource SharingNewsletter</a></p>
+                            <h3>DRPC Newsletter 10.16.23</h3>
+                            <p><a href="media/blog2october.pdf">What Rhetoric Can Teach Us About Surveillance?</a></p>
+                            <h3>DRPC Newsletter 09.04.23</h3>
+                            <p><a href="media/blog3.pdf">Compliance, the Patriot Act, and Post-9/11 Surveillance:22 Years Later</a></p>
+                            <h3> DRPC Newsletter 08.01.23 </h3> 
+                            <p><a href="media/blog4june.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning (Part II)</a></p>
+                            <h3> DRPC Newsletter 06.22.23 </h3>
+                            <p><a href="media/blog5may.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning</a></p>
+                            <h3>DRPC Newsletter 05.31.23 </h3>
+                            <p><a href="media/blog6may.pdf">The “Tik Tok Issue,” Part 2: The Rhetorical Dimensions of a Tik Tok Ban</a></p>
+                            <h3>DRPC Newsletter 05.09.23</h3>
+                            <p><a href="media/blog7may.pdf">The “Tik Tok Issue,” Part 1: Exploring TikTok</a></p>
+                            <h3> DRPC Newsletter 02.28.23</h3>
+                            <p><a href="media/blog8february.pdf">Exploring Privacy and Data Policies</a></p>
+                            <h3> DRPC Newsletter 01.23.23</h3>
+                            <p><a href="media/blog9.pdf">The “Data Trackers, Advertising, and Digital Data Identities</a>
+                        </div>
                                 
-                                <div class="col-8 col-12-medium">
-
-								<!-- Sidebar -->
-									<section id="sidebar">
-											<h3></h3>
-											<p>
-										<p>
-                        
-                        
-                                        <object data= "https://drpcollective.files.wordpress.com/2022/05/algorithms-basics_three-short-activities-1.pdf" 
-                                        width="500"
-                                        height="400"> 
-                                        </object> 
-
+                        <div class="col-8 col-12-medium">
+							<!-- Sidebar -->
+							<section id="sidebar">
 								<h3>Months of Recent Newsletter Releases</h3>
 								<div class="table-wrapper">
-									<table>
+									<table id="myNewsletterTable" class="allbg">
 										<thead>
 											<tr>
 												<th>Month</th>
 												<th>Newsletter</th>
-                                                <th>Click To Download</th>
+                                                <th>Title</th>
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
+											<tr id="myJan">
 												<td>January</td>
 												<td>DRPC Newsletter 01.23.23 <br> DRPC Newsletter 01.15.24</td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/01/experimental-style-fusion-1.pdf">Click here to download</a> <br> <a href= "#https://drpcollective.files.wordpress.com/2024/01/drpc-january-2024-newsletter.pdf">Click here to download</a></td>
+												<td><a href= "media/JanBlogPost.pdf">The “Data Trackers, Advertising, and Digital Data Identities</a>
+												<br><a href= "https://drpcollective.files.wordpress.com/2024/01/drpc-january-2024-newsletter.pdf">The DRPC Presents: Privacy Week 2024</a></td>
 											</tr>
-											<tr>
+											<tr id="myFeb">
 												<td>February</td>
 												<td>DRPC Newsletter 02.28.23</td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/02/drpc20february20newsletter.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/02/drpc20february20newsletter.pdf">Exploring Privacy and Data Policies</a></td>
 											</tr>
-											<tr>
+											<tr id="myMar">
                                                 <td>March</td>
+												<td>No Newsletter found for this month</td>
 												<td></td>
-												<td><a href= "#two">Click here to download</a></td>
 											</tr>
-											<tr>
+											<tr id="myApr">
 												<td>April</td>
+												<td>No Newsletter found for this month</td>
 												<td></td>
-												<td><a href= "#two">Click here to download</a></td>
 											</tr>
-											<tr>
+											<tr id="myMay">
                                                 <td>May</td>
 												<td>DRPC Newsletter 05.31.23 <br> DRPC Newsletter 05.09.23</a></td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/05/drpc-may-newsletter-part-2.pdf">Click here to download</a> <br> <a href= "https://drpcollective.files.wordpress.com/2023/05/drpc-may-newsletter-part-1.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/05/drpc-may-newsletter-part-2.pdf">The “Tik Tok Issue,” Part 2: The Rhetorical Dimensions of a Tik Tok Ban</a> <br> <a href= "https://drpcollective.files.wordpress.com/2023/05/drpc-may-newsletter-part-1.pdf">The “Tik Tok Issue,” Part 1: Exploring TikTok</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="myJun">
                                                 <td>June</td>
 												<td>DRPC Newsletter 06.22.23</a></td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/06/june-newsletter-part-1.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/06/june-newsletter-part-1.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="myJul">
                                                 <td>July</td>
+												<td>No Newsletter found for this month</td>
 												<td></td>
-												<td><a href= "#two">Click here to download</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="myAug">
                                                 <td>August</td>
 												<td>DRPC Newsletter 08.01.23</a></td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/08/newsletter_08.01.23.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/08/newsletter_08.01.23.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning (Part II)</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="mySep">
                                                 <td>September</td>
 												<td>DRPC Newsletter 09.04.23</td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/09/11-surveillance_-22-years-later.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/09/11-surveillance_-22-years-later.pdf">Compliance, the Patriot Act, and Post-9/11 Surveillance:22 Years Later</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="myOct">
                                                 <td>October</td>
 												<td>DRPC Newsletter 10.16.23</td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/10/drpc-october-newsletter.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/10/drpc-october-newsletter.pdf">What Rhetoric Can Teach Us About Surveillance?</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="myNov">
                                                 <td>November</td>
+												<td>No Newsletter found for this month</td>
 												<td></td>
-												<td><a href= "#two">Click here to download</a></td>
 											</tr>
-                                            <tr>
+                                            <tr id="myDec">
                                                 <td>December</td>
 												<td>DRPC Newsletter 12.18.23</a></td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/12/drpc-december-newsletter.pdf">Click here to download</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/12/drpc-december-newsletter.pdf">Teaching with AI in Spring 2024: A Resource SharingNewsletter</a></td>
 											</tr>
 										</tbody>
 										<tfoot>
-											<tr>
-											</tr>
+											<tr></tr>
 										</tfoot>
 									</table>
+									
+									<p></p>
+									<h3>PDF Preview of Recent Newsletters</h3>
+                                    <object data= "https://drpcollective.files.wordpress.com/2024/01/drpc-january-2024-newsletter.pdf" 
+                                    width="800"
+                                    height="600"> 
+                                    </object> 
+                                    <p></p>
+    <object data= "https://drpcollective.files.wordpress.com/2023/12/drpc-december-newsletter.pdf" 
+                                    width="800"
+                                    height="600"> 
+                                    </object> 
+    <p></p>
+    <object data= "https://drpcollective.files.wordpress.com/2023/10/drpc-october-newsletter.pdf" 
+                                    width="800"
+                                    height="600"> 
+                                    </object> 
+										
 								</div> 
-                                    </div></div>
-                                <footer class="major">
-                                    <ul class="actions special">
-                                        <li><a href="drpcNewsletter.html" class="button">Back to Top</a></li>
-                                    </ul>
-                                </footer>
-
-							</section>
-						<!-- Text
-							<section>
-								<h3>Morgan Banville</h3>
-                                <p>ABD, Graduate Student, East Carolina University</p>
-								<p><b>Morgan Banville</b> is a Ph.D. Candidate at East Carolina University. She is from Dartmouth, MA, and is a 2018 and 2019 graduate of the University of Massachusetts Dartmouth. In 2018, she graduated as a Massachusetts Commonwealth Scholar and summa cum laude with her degree in English Literature and Criticism, and Writing, Rhetoric, and Communication. As a Ph.D. Candidate, her research interests include the intersection of technical communication and surveillance studies, often informed by feminist methodologies. You can find her recent work in the Proceedings of the 38th and 39th ACM International Conference on Design of Communication, as well as Programmatic Perspectives, The Dangling Modifier, The Peer Review Journal, and the Journal of Technical Writing and Communication.
-                                 <span><img src="images/photo1.JPG" alt="" /></span>
-								<header>
-									<h3>Dr. Chen Chen </h3>
-									<p>Assistant Professor of English, Winthrop University</p>
-								</header>
-								<p><b>Dr. Chen Chen </b>(she/her/hers) is an incoming assistant professor of English in technical communication and rhetoric at Utah State University. After completing her Ph.D. in Communication, Rhetoric, & Digital Media at North Carolina State University, she taught first-year writing and professional and technical writing courses at Winthrop University where she also coordinated internships. She’s a scholar and teacher of professional and technical communication, digital rhetoric and writing. Her research interests include crisis communication practices by grassroots efforts, and digital feminist rhetorics in China and global Chinese diasporic communities. Currently, she’s been studying the design of Chinese online gender hate campaigns enabled by nationalist surveillance and control.</p>
-                                <span><img src="images/photo2.JPG" alt="" /></span>
-								<header>
-									<h3>Dr. Gavin P. Johnson</h3>
-									<p>Assistant Professor of English, Texas A&M University-Commerce</p>
-								</header>
-								<p><b>Dr. Gavin P. Johnson </b>(he/him/his) specializes in multimodal writing, queer rhetorics, and community-engaged learning. He currently works as an assistant professor and the Director of Writing at Texas A&M University-Commerce. His research and service receive national recognition, including the 2021 NCTE/CCCC Lavender Rhetorics Dissertation Award for Excellence in Queer Scholarship, an Honorable Mention for the 2020 Computers and Composition Hugh Burns Best Dissertation Award, the 2016 NCTE/CCCC Gloria Anzaldúa Rhetorician Award, and the 2018 Kairos Service Award. His research is published or forthcoming in Rhetoric Society Quarterly, Computers and Composition, Literacy in Composition Studies, Composition Studies, Constellations: A Cultural Rhetorics Publishing Space, College Literacy and Learning, Spark: A 4C4Equality Journal, Peitho, and Pre/Text: A Journal of Rhetorical Theory, and various edited collections. He is a proud first- generation college graduate from southeast Louisiana. Learn more at gavinpjohnson.com.</p>
-                                <span><img src="images/photo3.JPG" alt="" /></span>
-                            <h3>Dr. Cecilia Shelton </h3>
-                                <p>Assistant Professor of English, University of Maryland </p>
-                                <p> <b> Dr. Cecilia D. Shelton</b>'s scholarship exists at the intersections of cultural rhetorics, technical communication, digital and embodied rhetorics and draws on Black feminism as a source of theory and praxis. In 2021, she earned both the CCCC Outstanding Dissertation Award in Technical Communication and the CCCC Technical and Scientific Communication Award in the category of Best Article on Pedagogy or Curriculum in Technical or Scientific Communication. Her work can be found in journals such as Technical Communication Quarterly, The Journal of Multimodal Rhetorics, and IEEE. She is currently an Assistant Professor of Language, Writing, and Rhetoric in the Department of English at the University of Maryland, College Park.</p>
-                        <span><img src="images/photo4.JPG" alt="" /></span>
-								<hr />
-                        <h3> Dr. Noah P. Wason </h3>
-                            <p> Visiting Instructor of Writing and Rhetoric, Colgate University </p>
-                         <p> <b> Dr. Noah Wason </b> is a Visiting Instructor of Writing and Rhetoric at Colgate University who will be joining Binghamton University’s Writing Initiative this Fall. His research focuses on the intersections between rhetorical theory and technology, notably the connections between ethos and the algorithmic technologies that power social media platforms. His dissertation addresses recent trends in social media content recommendation algorithms that have led to increased political polarization in the United States and the proliferation of radicalizing conspiracy theories such as Qanon and #StoptheSteal. His research has appeared in Rhetoric Review, Rhetoric of Health & Medicine, the Journal of Interactive Technology and Pedagogy, and other venues. He recently completed his Ph.D. in Composition and Cultural Rhetoric at Syracuse University. </p>
-                                            <span><img src="images/photo5.JPG" alt="" /></span>
-                              
-                        <h3> Dr. Charles Woods </h3>
-                        <p> Teaching Assistant Professor, Texas A&M University-Commerce </p>
-                        <p> <b> Dr. Charles Woods </b> is an Assistant Professor at Texas A&M University-Commerce. He completed his Ph.D. at Illinois State University in 2021. Charles studies how society understands digital privacy and his research positions privacy policies as the sites where we can learn about and teach about digital privacy. Out of his work in graduate school came the Digital Rhetorical Privacy Collective—an interactive, online resource for those interested in learning more about digital privacy. Recently, he has contributed to The Journal of Interactive Technology and Pedagogy, Computers and Composition, and Writing Spaces. He is the creator and host of the award-winning The Big Rhetorical Podcast.
-                        <p> </p>
-                        <span><img src="images/photo6.JPG" alt="" /></span>
- </p>
-								<h2>Heading Level 2</h2>
-								<h3>Heading Level 3</h3>
-								<h4>Heading Level 4</h4>
-								<h5>Heading Level 5</h5>
-								<h6>Heading Level 6</h6>
-
-								<hr />
-
-								<h4>Blockquote</h4>
-								<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-
-								<h4>Preformatted</h4>
-								<pre><code>i = 0;
-
-	while (!deck.isInOrder()) {
-	    print 'Iteration ' + i;
-	    deck.shuffle();
-	    i++;
-	}
-
-	print 'It took ' + i + ' iterations to sort the deck.';
-	</code></pre>
-							</section>
-
-						<!-- Lists 
-							<section>
-								<h3>Lists</h3>
-								<div class="row">
-									<div class="col-6 col-12-xsmall">
-
-										<h4>Unordered</h4>
-										<ul>
-											<li>Dolor pulvinar etiam magna etiam.</li>
-											<li>Sagittis adipiscing lorem eleifend.</li>
-											<li>Felis enim feugiat dolore viverra.</li>
-										</ul>
-
-										<h4>Alternate</h4>
-										<ul class="alt">
-											<li>Dolor pulvinar etiam magna etiam.</li>
-											<li>Sagittis adipiscing lorem eleifend.</li>
-											<li>Felis enim feugiat dolore viverra.</li>
-											<li>Lobortis adipiscing condimentum lorem.</li>
-											<li>Integer eleifend erat sed accumsan.</li>
-										</ul>
-
-									</div>
-									<div class="col-6 col-12-xsmall">
-
-										<h4>Ordered</h4>
-										<ol>
-											<li>Dolor pulvinar etiam magna etiam.</li>
-											<li>Etiam vel felis at lorem sed viverra.</li>
-											<li>Felis enim feugiat dolore viverra.</li>
-											<li>Dolor pulvinar etiam magna etiam.</li>
-											<li>Etiam vel felis at lorem sed viverra.</li>
-											<li>Felis enim feugiat dolore viverra.</li>
-										</ol>
-
-										<h4>Icons</h4>
-										<ul class="icons">
-											<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-											<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-											<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-											<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-											<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-											<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-										</ul>
-										<ul class="icons">
-											<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-											<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-											<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-											<li><a href="#" class="icon brands alt fa-github"><span class="label">Github</span></a></li>
-											<li><a href="#" class="icon brands alt fa-dribbble"><span class="label">Dribbble</span></a></li>
-											<li><a href="#" class="icon brands alt fa-tumblr"><span class="label">Tumblr</span></a></li>
-										</ul>
-
-									</div>
-								</div>
-
-								<h4>Actions</h4>
-								<ul class="actions">
-									<li><a href="#" class="button primary">Default</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions small">
-									<li><a href="#" class="button primary small">Small</a></li>
-									<li><a href="#" class="button small">Small</a></li>
-								</ul>
-								<div class="row">
-									<div class="col-3 col-6-medium col-12-xsmall">
-										<ul class="actions stacked">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-										</ul>
-									</div>
-									<div class="col-3 col-6-medium col-12-xsmall">
-										<ul class="actions stacked">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-										</ul>
-									</div>
-									<div class="col-3 col-6-medium col-12-xsmall">
-										<ul class="actions stacked">
-											<li><a href="#" class="button primary fit">Default</a></li>
-											<li><a href="#" class="button fit">Default</a></li>
-										</ul>
-									</div>
-									<div class="col-3 col-6-medium col-12-xsmall">
-										<ul class="actions stacked">
-											<li><a href="#" class="button primary small fit">Small</a></li>
-											<li><a href="#" class="button small fit">Small</a></li>
-										</ul>
-									</div>
-								</div>
-							</section>
-
-						<!-- Table 
-							<section>
-								<h3>Table</h3>
-								<h4>Default</h4>
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th>Name</th>
-												<th>Description</th>
-												<th>Price</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Item 1</td>
-												<td>Ante turpis integer aliquet porttitor.</td>
-												<td>29.99</td>
-											</tr>
-											<tr>
-												<td>Item 2</td>
-												<td>Vis ac commodo adipiscing arcu aliquet.</td>
-												<td>19.99</td>
-											</tr>
-											<tr>
-												<td>Item 3</td>
-												<td> Morbi faucibus arcu accumsan lorem.</td>
-												<td>29.99</td>
-											</tr>
-											<tr>
-												<td>Item 4</td>
-												<td>Vitae integer tempus condimentum.</td>
-												<td>19.99</td>
-											</tr>
-											<tr>
-												<td>Item 5</td>
-												<td>Ante turpis integer aliquet porttitor.</td>
-												<td>29.99</td>
-											</tr>
-										</tbody>
-										<tfoot>
-											<tr>
-												<td colspan="2"></td>
-												<td>100.00</td>
-											</tr>
-										</tfoot>
-									</table>
-								</div>
-								<h4>Alternate</h4>
-								<div class="table-wrapper">
-									<table class="alt">
-										<thead>
-											<tr>
-												<th>Name</th>
-												<th>Description</th>
-												<th>Price</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Item 1</td>
-												<td>Ante turpis integer aliquet porttitor.</td>
-												<td>29.99</td>
-											</tr>
-											<tr>
-												<td>Item 2</td>
-												<td>Vis ac commodo adipiscing arcu aliquet.</td>
-												<td>19.99</td>
-											</tr>
-											<tr>
-												<td>Item 3</td>
-												<td> Morbi faucibus arcu accumsan lorem.</td>
-												<td>29.99</td>
-											</tr>
-											<tr>
-												<td>Item 4</td>
-												<td>Vitae integer tempus condimentum.</td>
-												<td>19.99</td>
-											</tr>
-											<tr>
-												<td>Item 5</td>
-												<td>Ante turpis integer aliquet porttitor.</td>
-												<td>29.99</td>
-											</tr>
-										</tbody>
-										<tfoot>
-											<tr>
-												<td colspan="2"></td>
-												<td>100.00</td>
-											</tr>
-										</tfoot>
-									</table>
-								</div>
-							</section>
-
-						<!-- Buttons 
-							<section>
-								<h3>Buttons</h3>
-								<ul class="actions">
-									<li><a href="#" class="button primary">Primary</a></li>
-									<li><a href="#" class="button">Default</a></li>
-								</ul>
-								<ul class="actions">
-									<li><a href="#" class="button primary large">Large</a></li>
-									<li><a href="#" class="button">Default</a></li>
-									<li><a href="#" class="button small">Default</a></li>
-								</ul>
-								<div class="row">
-									<div class="col-6 col-12-xsmall">
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-										</ul>
-									</div>
-									<div class="col-6 col-12-xsmall">
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-										</ul>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-									<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-								</ul>
-								<ul class="actions">
-									<li><span class="button primary disabled">Primary</span></li>
-									<li><span class="button disabled">Default</span></li>
-								</ul>
-							</section>
-
-						<!-- Form 
-							<section>
-								<h3>Form</h3>
-								<form method="post" action="#">
-									<div class="row gtr-uniform gtr-50">
-										<div class="col-6 col-12-xsmall">
-											<input type="text" name="name" id="name" value="" placeholder="Name" />
-										</div>
-										<div class="col-6 col-12-xsmall">
-											<input type="email" name="email" id="email" value="" placeholder="Email" />
-										</div>
-										<div class="col-12">
-											<select name="category" id="category">
-												<option value="">- Category -</option>
-												<option value="1">Manufacturing</option>
-												<option value="1">Shipping</option>
-												<option value="1">Administration</option>
-												<option value="1">Human Resources</option>
-											</select>
-										</div>
-										<div class="col-4 col-12-medium">
-											<input type="radio" id="priority-low" name="priority" checked>
-											<label for="priority-low">Low Priority</label>
-										</div>
-										<div class="col-4 col-12-medium">
-											<input type="radio" id="priority-normal" name="priority">
-											<label for="priority-normal">Normal Priority</label>
-										</div>
-										<div class="col-4 col-12-medium">
-											<input type="radio" id="priority-high" name="priority">
-											<label for="priority-high">High Priority</label>
-										</div>
-										<div class="col-6 col-12-medium">
-											<input type="checkbox" id="copy" name="copy">
-											<label for="copy">Email me a copy of this message</label>
-										</div>
-										<div class="col-6 col-12-medium">
-											<input type="checkbox" id="human" name="human" checked>
-											<label for="human">I am a human and not a robot</label>
-										</div>
-										<div class="col-12">
-											<textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
-										</div>
-										<div class="col-12">
-											<ul class="actions">
-												<li><input type="submit" value="Send Message" class="primary" /></li>
-												<li><input type="reset" value="Reset" /></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</section>
-
-						<!-- Image
-							<section>
-								<h3>Image</h3>
-								<h4>Fit</h4>
-								<div class="box alt">
-									<div class="row gtr-50 gtr-uniform">
-										<div class="col-12"><span class="image fit"><img src="images/pic07.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-										<div class="col-4 col-6-xsmall"><span class="image fit"><img src="images/pic04.jpg" alt="" /></span></div>
-									</div>
-								</div>
-
-								<h4>Left &amp; Right</h4>
-								<p><span class="image left"><img src="images/pic08.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam.</p>
-								<p><span class="image right"><img src="images/pic08.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam.</p>
-							</section>
-
+                            </div>
 					</div>
-				</div>
-
+                    <footer class="major">
+                        <ul class="actions special">
+                            <li><a href="drpcNewsletter.html" class="button">Back to Top</a></li>
+                        </ul>
+                    </footer>
+				</section>
+				
+			</div>			
 			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</footer>
-
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
 		</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
