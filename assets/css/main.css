@@ -2391,13 +2391,12 @@ input, select, textarea {
 
 	.boxed {
 		border: 2px solid white;
-        background-color: black;
-        padding: 10px;
+		padding: 10px;
 	}
-
-    .highOnLoad {
-        display: none;
-    }
+	
+	.hideOnLoad {
+		display: none;
+	}	
 	
 /* Box2 from Zero Four */
 
@@ -3039,10 +3038,14 @@ input, select, textarea {
 			border-right: 0;
 		}
 
-			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(255, 255, 255, 0.075);
-			}
+		table:not(.nobg) tbody tr:nth-child(2n + 1) {
+			background-color: rgba(255, 255, 255, 0.075);
+		}
 
+		table.allbg tbody tr:nth-child(2n) {
+			background-color: rgba(255, 255, 255, 0.075);
+		}
+		
 		table td {
 			padding: 0.75em 0.75em;
 		}
@@ -3067,27 +3070,27 @@ input, select, textarea {
 			border-collapse: separate;
 		}
 
-			table.alt tbody tr td {
-				border: solid 1px rgba(255, 255, 255, 0.3);
-				border-left-width: 0;
-				border-top-width: 0;
-			}
+		table.alt tbody tr td {
+			border: solid 1px rgba(255, 255, 255, 0.3);
+			border-left-width: 0;
+			border-top-width: 0;
+		}
 
-				table.alt tbody tr td:first-child {
-					border-left-width: 1px;
-				}
+		table.alt tbody tr td:first-child {
+			border-left-width: 1px;
+		}
 
-			table.alt tbody tr:first-child td {
-				border-top-width: 1px;
-			}
+		table.alt tbody tr:first-child td {
+			border-top-width: 1px;
+		}
 
-			table.alt thead {
-				border-bottom: 0;
-			}
+		table.alt thead {
+			border-bottom: 0;
+		}
 
-			table.alt tfoot {
-				border-top: 0;
-			}
+		table.alt tfoot {
+			border-top: 0;
+		}
 
 /* Button */
 
@@ -3158,6 +3161,14 @@ input, select, textarea {
 			font-size: 0.8em;
 		}
 
+		input[type="submit"].month,
+		input[type="reset"].month,
+		input[type="button"].month,
+		.button.month {
+			font-size: 0.6em;
+			width: 100%;
+		}
+		
 		input[type="submit"].large,
 		input[type="reset"].large,
 		input[type="button"].large,
