@@ -6,34 +6,68 @@
 -->
 <html>
 	<head>
-		<title>Right Sidebar - Landed by HTML5 UP</title>
+		<title>Landed by Digital Rhetorical Privacy Collective</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <script language="javascript">
+            function myBlogFunction(obj) {
+			
+				var table = document.getElementById('myBlogTable');  
+				var count = table.rows.length;
+				for (var i=0; i<count; i++) {    
+					if (obj == table.rows[i].id) {
+						table.rows[i].style.display = 'table-row';
+					} else {
+						table.rows[i].style.display = 'none';
+					}
+				}
+
+                if (obj == "myCurrentYear") {
+					for (var i=0; i<count; i++) {
+						table.rows[i].style.display = 'table-row';
+					}	
+				}
+				
+				/*
+				document.getElementById("myJan").style.display = 'table-row';
+				document.getElementById("myFeb").style.display = 'none';
+				document.getElementById("myMar").style.display = 'none';
+				*/	
+
+			}
+			
+
+        </script>		
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
 
-			<!-- Header -->
-			<header id="header">
+    <!-- Header -->
+    <header id="header">
     <nav id="nav">
         <ul>
-            <li id="logo"><a href="index.html"><span><img src="images/minilogo.jpg" alt="logo" /></span></a></li>
-            <li><a href="drpcInTheField.html">In the Field</a></li>
-            <li><a href="drpcTeachingResources.html">Teaching Resources</a></li>
-            <li><a href= "drpcReadingLists.html">Reading Lists</a></li>
-            <li><a href="drpcUsingResources.html">Using DRPC Resources</a></li>
+            <li id="logo"><a href="index.html"><span><img src="images/minilogo.jpg" alt="mini logo" /></span></a></li>
+            <!--li><a href="index.html">Home</a></li-->
+            <li><a href="drpcInTheField.html">DRPC in the Field</a></li>
+            <li>
+                <a href="#">DRPC Resources</a>
+                <ul>
+                    <li><a href="drpcTeachingResources.html">Teaching Resources</a></li>
+                    <li><a href="digitalResources.html">Digital Resources</a></li>
+                    <li><a href="drpcReadingLists.html">Reading Lists</a></li>
+                    <li><a href="drpcUsingResources.html">Using DRPC Resources</a></li>
+                </ul>
+            </li>
             <li class="active"><a href="drpcBlog.html">Blog</a></li>
             <li><a href="drpcNewsletter.html" >Newsletter</a> </li> 
-            <li><a href="digitalResources.html">Digital Resources</a></li>
             <li><a href="advisoryBoard.html">Advisory Board</a></li>
-            <li><a href="contacts.html">Contact Us</a></li>
+            <li><a href="drpcContacts.html">Contact Us</a></li>
             <li><a href="drpcRecentChanges.html" class="button primary">Recent Changes</a></li>
         </ul>
     </nav>
     </header>
-
 
 			<!-- Main -->
 				<div id="main" class="wrapper style1">
@@ -52,34 +86,37 @@
                                         <p>Here is a desciprtion of the blog post:</p>
                                         <p></p>
                                         <p> This blog post serves as an introduction to the DRPC blog page, where we post usually by month, what's included is an introduction to our organization, and we have a few events and resources published afterwards in the form of blog posts for our blog!</p>
-										
+                                        
                                         <div class="table-wrapper">
-									<table>
+									<table class="nobg">
                                         <p> Click here to read the monthly blog posts for each month.</p>
 										<thead>
-                                            <th colspan="3" ><a href="#" class="button fit small">2023-2024</a></th>
+                                            <th colspan="3" ><a href="#" class="button month">2023</a></th>
 										</thead>
 										<tbody>
 											<tr>
-												<td><a href="media/JanBlogPost" class="button fit small">Jan</a></td>
-												<td><a href="#" class="button fit small">Feb</a></td>
-												<td><a href="#" class="button fit small">Mar</a></td>
+												<td><a href="media/JanBlogPost.pdf" class="button month">Jan</a></td>
+												<td><a href="#" class="button month">Feb</a></td>
+												<td><a href="#" class="button month">Mar</a></td>
 											</tr>
 											<tr>
-												<td><a href="#" class="button fit small">Apr</a></td>
-												<td><a href="#" class="button fit small">May</a></td>
-												<td><a href="#" class="button fit small">Jun</a></td>
+												<td><a href="#" class="button month">Apr</a></td>
+												<td><a href="#" class="button month">May</a></td>
+												<td><a href="#" class="button month">Jun</a></td>
 											</tr>
 											<tr>
-                                                <td><a href="#" class="button fit small">Jul</a></td>
-												<td><a href="#" class="button fit small">Aug</a></td>
-												<td><a href="#" class="button fit small">Sep</a></td>
+                                                <td><a href="#" class="button month">Jul</a></td>
+												<td><a href="#" class="button month">Aug</a></td>
+												<td><a href="#" class="button month">Sep</a></td>
 											</tr>
 											<tr>
-												<td><a href="media/OctBlogPost" class="button fit small">Oct</a></td>
-												<td><a href="#" class="button fit small">Nov</a></td>
-												<td><a href="media/DecBlogPost" class="button fit small">Dec</a></td>
+												<td><a href="media/OctBlogPost.pdf" class="button month">Oct</a></td>
+												<td><a href="#" class="button month">Nov</a></td>
+												<td><a href="media/DecBlogPost.pdf" class="button month">Dec</a></td>
 											</tr>
+                                            <tr>
+											<td colspan="3" ><a href="#" class="button month" onclick ="myBlogFunction('myNextYear');">2024</a></td>
+										</tr>
 										</tbody>
 										<tfoot>
 											<tr>
