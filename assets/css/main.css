@@ -3161,6 +3161,12 @@ input, select, textarea {
 			font-size: 0.8em;
 		}
 
+     input[type="submit"].xsmall,
+input[type="reset"].xsmall,
+input[type="button"].xsmall,
+.button.xsmall {
+font-size: 0.6em;
+}
 		input[type="submit"].month,
 		input[type="reset"].month,
 		input[type="button"].month,
