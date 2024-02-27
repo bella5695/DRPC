@@ -16,20 +16,54 @@
 		<script language="javascript">
             function myMonthFunction(obj) {
 			
+				mySearch = obj + "2023";
+				myYear = document.getElementById('myCurrYear').innerText;
+				if (myYear != "") {
+					mySearch = obj + myYear;
+				}
+			
+				var found = 0;
+				document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
+				document.getElementById("searchByTitleResult").innerText = "";
+				
 				var table = document.getElementById('myNewsletterTable');  
 				var count = table.rows.length;
-				for (var i=0; i<count; i++) {    
-					if (obj == table.rows[i].id) {
-						table.rows[i].style.display = 'table-row';
-					} else {
-						table.rows[i].style.display = 'none';
-					}
-				}
 
-                if (obj == "myCurrentYear") {
-					for (var i=0; i<count; i++) {
-						table.rows[i].style.display = 'table-row';
-					}	
+                if (obj == "myNextYear" && myYear == "2023" ) {
+					document.getElementById('myNextYear').classList.add("disabled");
+					document.getElementById('myPrevYear').classList.remove("disabled");
+					document.getElementById('myCurrYear').innerText = "2024";
+					document.getElementById('searchByMonthText').innerText = "Search Newsletters in 2024 by Month:";
+					return;
+				}
+                else if (obj == "myPrevYear" && myYear == "2024") {
+					document.getElementById('myPrevYear').classList.add("disabled");
+					document.getElementById('myNextYear').classList.remove("disabled");
+					document.getElementById('myCurrYear').innerText = "2023";
+					document.getElementById('searchByMonthText').innerText = "Search Newsletters in 2023 by Month:";
+					return;
+				}
+				
+				if (obj == "myCurrYear") {
+					for (var i=0; i<count; i++) {    
+						if (table.rows[i].id.includes(myYear)) {
+							table.rows[i].style.display = 'table-row';
+							found++;
+							document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
+						} else {
+							table.rows[i].style.display = 'none';
+						}
+					}
+				} else {
+					for (var i=0; i<count; i++) {    
+						if (mySearch == table.rows[i].id) {
+							table.rows[i].style.display = 'table-row';
+							found++;
+							document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
+						} else {
+							table.rows[i].style.display = 'none';
+						}
+					}
 				}
 				
 				/*
@@ -38,6 +72,28 @@
 				document.getElementById("myMar").style.display = 'none';
 				*/	
 
+			}
+			
+			function mySearchFunction() {
+				var searchTitle = document.getElementById("searchText").value;
+				//alert(searchTitle);
+				
+				var found = 0;
+				document.getElementById("searchByTitleResult").innerText = "" + found + " matching found";
+				document.getElementById("searchByMonthResult").innerText = "";
+				
+				var table = document.getElementById('myNewsletterTable');
+				var count = table.rows.length;
+				for (var i=0; i<count; i++) {
+					var myTitle = table.rows[i].cells[2].innerText;
+					if (myTitle.includes(searchTitle)) {
+						table.rows[i].style.display = 'table-row';
+						found++;
+						document.getElementById("searchByTitleResult").innerText = "" + found + " matching found";
+					} else {
+						table.rows[i].style.display = 'none';
+					}
+				}
 			}
 			
 			function toggleParagraphVisible() {
@@ -90,20 +146,28 @@
 						<div class="col-4 col-12-medium">
                             
                             <!-- Search -->
-                            <b><p>Search newsletter by title: </p></b>
+                            <b><p>Search Newsletters by Title: </p></b>
                             <section class="box3 search">
                                 <form method="post" action="#">
-                                    <input type="text" class="text" name="search" placeholder="Search" />
+									<input type="text" id="searchText" class="text" name="search" placeholder="Title"/>
+									<p id="searchByTitleResult"></p>
+									<a href="#" class="primary button xsmall" onclick ="mySearchFunction('byTitle');">Search</a>
                                 </form>
 				            </section>
                             
-							<b><p>Search newsletter by month: </p></b>
+							<b><p id="searchByMonthText">Search Newsletters in 2023 by Month: </p></b>
+							<p id="searchByMonthResult"></p>
 							<div class="table-wrapper">
 								<table class="nobg">
 									<tbody>
+										<!--tr>
+											<td colspan="3" ><a id="my2023" href="#" class="button month" onclick ="myMonthFunction('my2023');">2024 / 2023</a></td>
+										</tr-->
 										<tr>
-											<td colspan="3" ><a href="#" class="button month" onclick ="myMonthFunction('myCurrentYear');">2023</a></td>
-										</tr>
+											<td><a href="#" id="myPrevYear" class="primary button month disabled" onclick ="myMonthFunction('myPrevYear');"> << </a></td>
+											<td><a href="#" id="myCurrYear" class="primary button month" onclick ="myMonthFunction('myCurrYear');">2023</a></td>
+											<td><a href="#" id="myNextYear" class="primary button month" onclick ="myMonthFunction('myNextYear');"> >> </a></td>
+										</tr>										
 										<tr>
 											<td><a href="#" class="button month" onclick ="myMonthFunction('myJan');">Jan</a></td>
 											<td><a href="#" class="button month" onclick ="myMonthFunction('myFeb');">Feb</a></td>
@@ -124,9 +188,9 @@
 											<td><a href="#" class="button month" onclick ="myMonthFunction('myNov');">Nov</a></td>
 											<td><a href="#" class="button month" onclick ="myMonthFunction('myDec');">Dec</a></td>
 										</tr>
-										<tr>
-											<td colspan="3" ><a href="#" class="button month" onclick ="myMonthFunction('myNextYear');">2024</a></td>
-										</tr>										
+										<!--tr>
+											<td colspan="3" ><a id="my2024" href="#" class="button month disabled" onclick ="myMonthFunction('my2024');">2023 / 2024</a></td>
+										</tr-->										
 									</tbody>
 									<tfoot>
 										<tr>
@@ -172,67 +236,71 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr id="myJan">
+											<tr id="myJan2023">
 												<td>January</td>
-												<td>DRPC Newsletter 01.23.23 <br> DRPC Newsletter 01.15.24</td>
+												<td>DRPC Newsletter 01.23.23</td>
 												<td><a href= "media/JanBlogPost.pdf">The “Data Trackers, Advertising, and Digital Data Identities</a>
-												<br><a href= "https://drpcollective.files.wordpress.com/2024/01/drpc-january-2024-newsletter.pdf">The DRPC Presents: Privacy Week 2024</a></td>
 											</tr>
-											<tr id="myFeb">
+											<tr id="myFeb2023">
 												<td>February</td>
 												<td>DRPC Newsletter 02.28.23</td>
 												<td><a href= "https://drpcollective.files.wordpress.com/2023/02/drpc20february20newsletter.pdf">Exploring Privacy and Data Policies</a></td>
 											</tr>
-											<tr id="myMar">
+											<tr id="myMar2e23">
                                                 <td>March</td>
 												<td>No Newsletter published this month</td>
 												<td></td>
 											</tr>
-											<tr id="myApr">
+											<tr id="myApr2e23">
 												<td>April</td>
 												<td>No Newsletter published this month</td>
 												<td></td>
 											</tr>
-											<tr id="myMay">
+											<tr id="myMay2023">
                                                 <td>May</td>
 												<td>DRPC Newsletter 05.31.23 <br> DRPC Newsletter 05.09.23</a></td>
 												<td><a href= "https://drpcollective.files.wordpress.com/2023/05/drpc-may-newsletter-part-2.pdf">The “Tik Tok Issue,” Part 2: The Rhetorical Dimensions of a Tik Tok Ban</a> <br> <a href= "https://drpcollective.files.wordpress.com/2023/05/drpc-may-newsletter-part-1.pdf">The “Tik Tok Issue,” Part 1: Exploring TikTok</a></td>
 											</tr>
-                                            <tr id="myJun">
+                                            <tr id="myJun2023">
                                                 <td>June</td>
 												<td>DRPC Newsletter 06.22.23</a></td>
 												<td><a href= "https://drpcollective.files.wordpress.com/2023/06/june-newsletter-part-1.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning</a></td>
 											</tr>
-                                            <tr id="myJul">
+                                            <tr id="myJul2e23">
                                                 <td>July</td>
 												<td>No Newsletter published this month</td>
 												<td></td>
 											</tr>
-                                            <tr id="myAug">
+                                            <tr id="myAug2023">
                                                 <td>August</td>
 												<td>DRPC Newsletter 08.01.23</a></td>
 												<td><a href= "https://drpcollective.files.wordpress.com/2023/08/newsletter_08.01.23.pdf">Artificial Intelligence: A Rhetoric and Writing Reckoning (Part II)</a></td>
 											</tr>
-                                            <tr id="mySep">
+                                            <tr id="mySep2023">
                                                 <td>September</td>
 												<td>DRPC Newsletter 09.04.23</td>
 												<td><a href= "https://drpcollective.files.wordpress.com/2023/09/11-surveillance_-22-years-later.pdf">Compliance, the Patriot Act, and Post-9/11 Surveillance:22 Years Later</a></td>
 											</tr>
-                                            <tr id="myOct">
+                                            <tr id="myOct2023">
                                                 <td>October</td>
 												<td>DRPC Newsletter 10.16.23</td>
 												<td><a href= "https://drpcollective.files.wordpress.com/2023/10/drpc-october-newsletter.pdf">What Rhetoric Can Teach Us About Surveillance?</a></td>
 											</tr>
-                                            <tr id="myNov">
+                                            <tr id="myNov2e23">
                                                 <td>November</td>
 												<td>No Newsletter published this month</td>
 												<td></td>
 											</tr>
-                                            <tr id="myDec">
+                                            <tr id="myDec2023">
                                                 <td>December</td>
 												<td>DRPC Newsletter 12.18.23</a></td>
-												<td><a href= "https://drpcollective.files.wordpress.com/2023/12/drpc-december-newsletter.pdf">Teaching with AI in Spring 2024: A Resource SharingNewsletter</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2023/12/drpc-december-newsletter.pdf">Teaching with AI in Spring 2024: A Resource Sharing Newsletter</a></td>
 											</tr>
+                                            <tr id="myJan2024">
+                                                <td>January</td>
+												<td>DRPC Newsletter 01.15.24</a></td>
+												<td><a href= "https://drpcollective.files.wordpress.com/2024/01/drpc-january-2024-newsletter.pdf">The DRPC Presents: Privacy Week 2024</a></td>
+											</tr>											
 										</tbody>
 										<tfoot>
 											<tr></tr>
