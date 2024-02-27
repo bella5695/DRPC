@@ -22,34 +22,36 @@
 					mySearch = obj + myYear;
 				}
 			
-				var found = 0;
-				document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
-				document.getElementById("searchByTitleResult").innerText = "";
-				
-				var table = document.getElementById('myNewsletterTable');  
-				var count = table.rows.length;
-
                 if (obj == "myNextYear" && myYear == "2023" ) {
 					document.getElementById('myNextYear').classList.add("disabled");
 					document.getElementById('myPrevYear').classList.remove("disabled");
 					document.getElementById('myCurrYear').innerText = "2024";
-					document.getElementById('searchByMonthText').innerText = "Search Newsletters in 2024 by Month:";
+					//document.getElementById('searchByMonthText').innerText = "Search Newsletters in 2024 by Month:";
 					return;
 				}
                 else if (obj == "myPrevYear" && myYear == "2024") {
 					document.getElementById('myPrevYear').classList.add("disabled");
 					document.getElementById('myNextYear').classList.remove("disabled");
 					document.getElementById('myCurrYear').innerText = "2023";
-					document.getElementById('searchByMonthText').innerText = "Search Newsletters in 2023 by Month:";
+					//document.getElementById('searchByMonthText').innerText = "Search Newsletters in 2023 by Month:";
 					return;
 				}
 				
+				var myMonth = obj.replace("my", "");
+				var found = 0;
+				document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
+				document.getElementById("searchByTitleResult").innerText = "";
+				document.getElementById("searchResult").innerText = "" + found + " Matching Newsletter Releases found in " + myYear + " " + myMonth;
+				
+				var table = document.getElementById('myNewsletterTable');  
+				var count = table.rows.length;				
 				if (obj == "myCurrYear") {
 					for (var i=0; i<count; i++) {    
 						if (table.rows[i].id.includes(myYear)) {
 							table.rows[i].style.display = 'table-row';
 							found++;
 							document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
+							document.getElementById("searchResult").innerText = "" + found + " Matching Newsletter Releases found in " + myYear + " all months";
 						} else {
 							table.rows[i].style.display = 'none';
 						}
@@ -60,6 +62,7 @@
 							table.rows[i].style.display = 'table-row';
 							found++;
 							document.getElementById("searchByMonthResult").innerText = "" + found + " matching found";
+							document.getElementById("searchResult").innerText = "" + found + " Matching Newsletter Releases found in " + myYear + " " + myMonth;
 						} else {
 							table.rows[i].style.display = 'none';
 						}
@@ -81,6 +84,7 @@
 				var found = 0;
 				document.getElementById("searchByTitleResult").innerText = "" + found + " matching found";
 				document.getElementById("searchByMonthResult").innerText = "";
+				document.getElementById("searchResult").innerText = "" + found + " Matching Newsletter Releases found by keyword in Title";
 				
 				var table = document.getElementById('myNewsletterTable');
 				var count = table.rows.length;
@@ -90,6 +94,7 @@
 						table.rows[i].style.display = 'table-row';
 						found++;
 						document.getElementById("searchByTitleResult").innerText = "" + found + " matching found";
+						document.getElementById("searchResult").innerText = "" + found + " Matching Newsletter Releases found by keyword in Title";
 					} else {
 						table.rows[i].style.display = 'none';
 					}
@@ -129,7 +134,7 @@
             <li class="active"><a href="drpcNewsletter.html" >Newsletter</a> </li> 
             <li><a href="advisoryBoard.html">Advisory Board</a></li>
             <li><a href="drpcContacts.html">Contact Us</a></li>
-            <li><a href="drpcRecentChanges.html" class="button primary">Recent Changes</a></li>
+            <li><a href="drpcRecentChanges.html" class="button primary xsmall">Recent Changes</a></li>
         </ul>
     </nav>
     </header>
@@ -141,7 +146,7 @@
 					<h2 class = "icon solid fa-newspaper" > DRPC Newsletter</h2>
 					<p>Here you can download all the monthly newsletters from the DRPC!</p>
 				</header>
-				<section>
+				<section id="searchbar">
 					<div class="row gtr-150">
 						<div class="col-4 col-12-medium">
                             
@@ -149,44 +154,48 @@
                             <b><p>Search Newsletters by Title: </p></b>
                             <section class="box3 search">
                                 <form method="post" action="#">
-									<input type="text" id="searchText" class="text" name="search" placeholder="Title"/>
-									<p id="searchByTitleResult"></p>
-									<a href="#" class="primary button xsmall" onclick ="mySearchFunction('byTitle');">Search</a>
+									<input type="text" id="searchText" class="text" name="search" placeholder="any keyword in Title"/>
+									<b><p id="searchByTitleResult"></p></b>
+									<a href="#searchbar" class="primary button xsmall" onclick ="mySearchFunction('byTitle');">Search</a>
                                 </form>
 				            </section>
                             
-							<b><p id="searchByMonthText">Search Newsletters in 2023 by Month: </p></b>
-							<p id="searchByMonthResult"></p>
+							<b><p id="searchByMonthText">Search Newsletters by Month: </p></b>
 							<div class="table-wrapper">
 								<table class="nobg">
 									<tbody>
+										<thead>
+											<tr>
+												<th colspan="3" id="searchByMonthResult"></th>
+											</tr>
+										</thead>									
 										<!--tr>
 											<td colspan="3" ><a id="my2023" href="#" class="button month" onclick ="myMonthFunction('my2023');">2024 / 2023</a></td>
 										</tr-->
 										<tr>
-											<td><a href="#" id="myPrevYear" class="primary button month disabled" onclick ="myMonthFunction('myPrevYear');"> << </a></td>
-											<td><a href="#" id="myCurrYear" class="primary button month" onclick ="myMonthFunction('myCurrYear');">2023</a></td>
-											<td><a href="#" id="myNextYear" class="primary button month" onclick ="myMonthFunction('myNextYear');"> >> </a></td>
+											<td><a href="#searchbar" id="myPrevYear" class="primary button month disabled" onclick ="myMonthFunction('myPrevYear');"> << </a></td>
+											<td><a href="#searchbar" id="myCurrYear" class="primary button month" onclick ="myMonthFunction('myCurrYear');">2023</a></td>
+											<td><a href="#searchbar" id="myNextYear" class="primary button month" onclick ="myMonthFunction('myNextYear');"> >> </a></td>
 										</tr>										
 										<tr>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myJan');">Jan</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myFeb');">Feb</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myMar');">Mar</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myJan');">Jan</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myFeb');">Feb</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myMar');">Mar</a></td>
 										</tr>
 										<tr>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myApr');">Apr</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myMay');">May</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myJun');">Jun</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myApr');">Apr</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myMay');">May</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myJun');">Jun</a></td>
 										</tr>
 										<tr>
-                                            <td><a href="#" class="button month" onclick ="myMonthFunction('myJul');">Jul</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myAug');">Aug</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('mySep');">Sep</a></td>
+                                            <td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myJul');">Jul</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myAug');">Aug</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('mySep');">Sep</a></td>
 										</tr>
 										<tr>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myOct');">Oct</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myNov');">Nov</a></td>
-											<td><a href="#" class="button month" onclick ="myMonthFunction('myDec');">Dec</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myOct');">Oct</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myNov');">Nov</a></td>
+											<td><a href="#searchbar" class="button month" onclick ="myMonthFunction('myDec');">Dec</a></td>
 										</tr>
 										<!--tr>
 											<td colspan="3" ><a id="my2024" href="#" class="button month disabled" onclick ="myMonthFunction('my2024');">2023 / 2024</a></td>
@@ -225,11 +234,11 @@
                         <div class="col-8 col-12-medium">
 							<!-- Sidebar -->
 							<section id="sidebar">
-								<h3>Months of Recent Newsletter Releases</h3>
+								<h3 id="searchResult">Matching Newsletter Releases Found</h3>
 								<div class="table-wrapper">
 									<table id="myNewsletterTable" class="allbg">
 										<thead>
-											<tr>
+											<tr id="myHeader">
 												<th>Month</th>
 												<th>Newsletter</th>
                                                 <th>Title</th>
